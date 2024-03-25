@@ -18,7 +18,7 @@ public class Main {
 		String nomeEmpresa;
 		Cliente c1 = new Cliente();
 		Avaliador av = new Avaliador();
-		Avaliacao ava = new Avaliacao();
+		Avaliacao ava = new Avaliacao(c1);
 		ClienteController cControl = new ClienteController();
 		int escolha;
 
@@ -63,6 +63,7 @@ public class Main {
 
 			// Insere um clientes no banco
 			case 1:
+			
 				// cliente
 				for (int i = 0; i < vetNomeCliente.length; i++) {
 					c1.setCnpj(vetCnpjCliente[i]);
@@ -95,8 +96,9 @@ public class Main {
 					em.close();
 				}
 
-				// avaliacao
+				
 				for (int i = 0; i < vetDiagnotico.length; i++) {
+					ava.setCliente(c1);	
 					ava.setDiagnostico(vetDiagnotico[i]);
 					ava.setPontuacao(vetPontuacao[i]);
 					ava.setNivelAderencia(vetNivelAderencia[i]);
@@ -105,7 +107,7 @@ public class Main {
 					em.merge(ava);
 					em.getTransaction().commit();
 					em.close();
-				}
+				} 
 
 //				System.out.println("Inserir Cliente");
 //				c1.setId(0);

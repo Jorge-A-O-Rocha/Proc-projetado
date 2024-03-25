@@ -1,13 +1,19 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name="cliente")
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +31,10 @@ public class Cliente implements Serializable {
 	private String tipoServico;
 	private String descricaoServico;
 	private String emailCliente;
-
+	
+	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
+    private List<Avaliacao> avaliacoes;
+	
 	public Cliente() {
 
 	}
