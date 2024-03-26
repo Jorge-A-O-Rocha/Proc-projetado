@@ -30,13 +30,23 @@ public class Avaliacao implements Serializable {
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
 	
-	public Avaliacao(Cliente cliente) {
-		super();
-		this.cliente = cliente;
-	}
 	public Avaliacao() {
 		super();
 	}
+	
+	public Avaliacao(long idAvaliacao, Date dataAvaliacao, String diagnostico, int pontuacao, String nivelAderencia,
+			Cliente cliente) {
+		super();
+		this.idAvaliacao = idAvaliacao;
+		this.dataAvaliacao = dataAvaliacao;
+		this.diagnostico = diagnostico;
+		this.pontuacao = pontuacao;
+		this.nivelAderencia = nivelAderencia;
+		this.cliente = cliente;
+	}
+
+
+
 	public Cliente getCliente() {
 		return cliente;
 	}

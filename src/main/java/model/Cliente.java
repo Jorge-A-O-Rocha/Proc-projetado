@@ -11,10 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import dao.IUsuario;
+
 
 @Entity
 @Table(name="cliente")
-public class Cliente implements Serializable {
+public class Cliente implements Serializable, IUsuario {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -37,6 +39,24 @@ public class Cliente implements Serializable {
 	
 	public Cliente() {
 
+	}
+
+	public Cliente(long idCliente, String cnpj, String nomeCliente, String idContrato, String nomeEmpresa,
+			String razaoSocial, String nomeGestor, String pontoFocal, String tipoServico, String descricaoServico,
+			String emailCliente, List<Avaliacao> avaliacoes) {
+		super();
+		this.idCliente = idCliente;
+		this.cnpj = cnpj;
+		this.nomeCliente = nomeCliente;
+		this.idContrato = idContrato;
+		this.nomeEmpresa = nomeEmpresa;
+		this.razaoSocial = razaoSocial;
+		this.nomeGestor = nomeGestor;
+		this.pontoFocal = pontoFocal;
+		this.tipoServico = tipoServico;
+		this.descricaoServico = descricaoServico;
+		this.emailCliente = emailCliente;
+		this.avaliacoes = avaliacoes;
 	}
 
 	public long getIdCliente() {
@@ -127,8 +147,32 @@ public class Cliente implements Serializable {
 		this.emailCliente = emailCliente;
 	}
 
+	public List<Avaliacao> getAvaliacoes() {
+		return avaliacoes;
+	}
+
+	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+		this.avaliacoes = avaliacoes;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cadastro() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void Contrato() {
+		
+	}
+	
 }

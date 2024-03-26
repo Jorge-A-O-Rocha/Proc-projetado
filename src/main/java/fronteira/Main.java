@@ -18,25 +18,25 @@ public class Main {
 		String nomeEmpresa;
 		Cliente c1 = new Cliente();
 		Avaliador av = new Avaliador();
-		Avaliacao ava = new Avaliacao(c1);
+		Avaliacao ava = new Avaliacao();
 		ClienteController cControl = new ClienteController();
 		int escolha;
 
 		// Vetores de testes cliente
 		String[] vetCnpjCliente = { "000000000000", "000000000001", "000000000002", "000000000003" };
-		String[] vetNomeCliente = { "Beatriz", "Erick", "Gabriela", "Jorge" };
+		String[] vetNomeCliente = { "Fulano 1", "Fulano 2", "Fulano 3", "Fulano 4" };
 		String[] vetIdContrato = { "1", "2", "3", "4" };
 		String[] vetNomeEmpresa = { "Teste 1", "Teste 2", "Teste 3", "Teste 4" };
 		String[] vetEmailCliente = { "testeExemplo@teste.com", "testExe@teste.com", "tesExem@teste.com",
 				"Exemplo@teste.com" };
-		String[] vetRazaoSocial = { "Bea", "Eri", "Gab", "Jor" };
-		String[] vetNomeGestor = { "Beatri", "Eric", "Gabriel", "Jorg" };
-		String[] vetPontoFocal = { "Beat", "Erikinho", "Gabri", "Jorgin" };
+		String[] vetRazaoSocial = { "Ful 1", "Ful 2", "Ful 3", "Ful 4" };
+		String[] vetNomeGestor = { "Sicrano 1", "Sicrano 2", "Sicrano 3", "Sicrano 4" };
+		String[] vetPontoFocal = { "Test", "Teste", "Testando", "Testado" };
 		String[] vetTipoServico = { "construcao", "medico", "comida", "esporte" };
 		String[] vetDescricaoServico = { "tutu", "atta", "lorenipisulon", "1212" };
 
 		// avaliador
-		String[] vetNomeAvaliador = { "Beatriz", "Erick", "Gabriela" };
+		String[] vetNomeAvaliador = { "Beltrano 1", "Beltrano 2", "Beltrano 3" };
 		String[] vetAvaliadorTelefone = { "Teste 1", "Teste 2", "Teste 3" };
 		String[] vetEmailAvaliador = { "avaliador1@teste.com", "avaliador2@teste.com", "avaliador3@teste.com" };
 
@@ -98,7 +98,6 @@ public class Main {
 
 				// avaliacao
 				for (int i = 0; i < vetDiagnotico.length; i++) {
-					ava.setCliente(c1);	
 					ava.setDiagnostico(vetDiagnotico[i]);
 					ava.setPontuacao(vetPontuacao[i]);
 					ava.setNivelAderencia(vetNivelAderencia[i]);

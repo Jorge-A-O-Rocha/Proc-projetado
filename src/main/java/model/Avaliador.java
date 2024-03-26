@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import dao.IUsuario;
+
 @Entity
-public class Avaliador implements Serializable {
+public class Avaliador implements Serializable, IUsuario {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -57,6 +59,18 @@ public class Avaliador implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cadastro() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
