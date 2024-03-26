@@ -40,9 +40,8 @@ public class Main {
 		String[] vetAvaliadorTelefone = { "Teste 1", "Teste 2", "Teste 3" };
 		String[] vetEmailAvaliador = { "avaliador1@teste.com", "avaliador2@teste.com", "avaliador3@teste.com" };
 
-		// private Date dataAvaliacao;
 		// avaliacao
-		String[] vetDiagnotico = { "bom", "ruim", "medio" };
+		String[] vetDiagnostico = { "bom", "ruim", "medio" };
 		int[] vetPontuacao = { 10, 2, 5 };
 		String[] vetNivelAderencia = { "avaliador1@teste.com", "avaliador2@teste.com", "avaliador3@teste.com" };
 
@@ -61,7 +60,7 @@ public class Main {
 
 			switch (escolha) {
 
-			// Insere um clientes no banco
+			// Insere clientes,avaliadores e avaliações no banco
 			case 1:
 			
 				// cliente
@@ -97,8 +96,9 @@ public class Main {
 				}
 
 				// avaliacao
-				for (int i = 0; i < vetDiagnotico.length; i++) {
-					ava.setDiagnostico(vetDiagnotico[i]);
+				for (int i = 0; i < vetDiagnostico.length; i++) {
+					ava.setCliente(c1);
+					ava.setDiagnostico(vetDiagnostico[i]);
 					ava.setPontuacao(vetPontuacao[i]);
 					ava.setNivelAderencia(vetNivelAderencia[i]);
 					EntityManager em = JPAUtil.getEntityManager();
@@ -112,7 +112,7 @@ public class Main {
 			// Pesquisa um cliente cadastrado pelo nome da empresa
 			case 2:
 
-				System.out.println("Pesquisar um Cliente = ");
+				System.out.println("Pesquisar um Cliente/Empresa = ");
 				nomeEmpresa = scanner.next();
 				List<Cliente> clientes = cControl.pesquisarUmCliente(nomeEmpresa);
 				if (!(clientes.isEmpty())) {
@@ -126,6 +126,7 @@ public class Main {
 					System.out.println("Não encontrou o Cliente");
 				scanner.nextLine();
 				break;
+				
 			// Lista todos os clientes cadastrados
 			case 3:
 
@@ -145,7 +146,7 @@ public class Main {
 			// Apaga um cliente cadastrado do banco
 			case 4:
 
-				System.out.println("Escolha um Cliente para Apagar ");
+				System.out.println("Escolha um Cliente para Apagar (ID) ");
 				long id = scanner.nextLong();
 				cControl.apagar(id);
 				break;

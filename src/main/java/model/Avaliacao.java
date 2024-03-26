@@ -45,8 +45,6 @@ public class Avaliacao implements Serializable {
 		this.cliente = cliente;
 	}
 
-
-
 	public Cliente getCliente() {
 		return cliente;
 	}
