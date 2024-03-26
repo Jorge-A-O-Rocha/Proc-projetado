@@ -17,7 +17,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int escolha;
 
-        // Inicialização do controlador de Cliente
+        // Inicialização controle
         ClienteController c = new ClienteController();
         AvaliadorController ava = new AvaliadorController();
         AvaliacaoController av = new AvaliacaoController();
@@ -46,7 +46,7 @@ public class Main {
                     ava.inserirAvaliador(avaliador1);
                     
                     // Criando e persistindo uma avaliação
-                    Avaliacao avaliacao1 = new Avaliacao(1L, null, "otimo", 1, "bom", cliente1);
+                    Avaliacao avaliacao1 = new Avaliacao(1L, null, "otimo", 1, "bom", cliente1, avaliador1);
                     av.inserirAvaliacao(avaliacao1);
 
                     System.out.println("Cliente, Avaliador e Avaliação inseridos com sucesso.");

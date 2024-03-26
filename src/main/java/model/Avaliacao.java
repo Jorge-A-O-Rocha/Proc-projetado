@@ -28,14 +28,17 @@ public class Avaliacao implements Serializable {
 	
 	@ManyToOne
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+	private Cliente cliente;
+	@ManyToOne
+	@JoinColumn(name = "avaliador_id")
+    private Avaliador avaliador;
 	
 	public Avaliacao() {
 		super();
 	}
 	
 	public Avaliacao(long idAvaliacao, Date dataAvaliacao, String diagnostico, int pontuacao, String nivelAderencia,
-			Cliente cliente) {
+			Cliente cliente, Avaliador avaliador) {
 		super();
 		this.idAvaliacao = idAvaliacao;
 		this.dataAvaliacao = dataAvaliacao;
@@ -43,8 +46,17 @@ public class Avaliacao implements Serializable {
 		this.pontuacao = pontuacao;
 		this.nivelAderencia = nivelAderencia;
 		this.cliente = cliente;
+		this.avaliador = avaliador;
 	}
 	
+	public Avaliador getAvaliador() {
+		return avaliador;
+	}
+
+	public void setAvaliador(Avaliador avaliador) {
+		this.avaliador = avaliador;
+	}
+
 	public long getIdAvaliacao() {
 		return idAvaliacao;
 	}

@@ -1,11 +1,14 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import dao.IUsuario;
 
@@ -20,6 +23,9 @@ public class Avaliador implements Serializable, IUsuario {
 	private String nomeAvaliador;
 	private String emailAvaliador;
 	private String telefone;
+	
+	@OneToMany(mappedBy = "avaliador", cascade = CascadeType.ALL)
+    private List<Avaliacao> avaliacoes;
 
 	public Avaliador() {
 
