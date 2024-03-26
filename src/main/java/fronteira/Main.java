@@ -96,7 +96,7 @@ public class Main {
 					em.close();
 				}
 
-				
+				// avaliacao
 				for (int i = 0; i < vetDiagnotico.length; i++) {
 					ava.setCliente(c1);	
 					ava.setDiagnostico(vetDiagnotico[i]);
@@ -108,15 +108,6 @@ public class Main {
 					em.getTransaction().commit();
 					em.close();
 				} 
-
-//				System.out.println("Inserir Cliente");
-//				c1.setId(0);
-//				c1.setCnpj("000000000003");
-//				c1.setNomeEmpresa("Super");
-//				c1.setNomeResponsavel("Jorge");
-//				c1.setContatoEmail("testeExemplo@teste.com");
-//				cControl.inserirCliente(c1);	
-//				System.out.println("Cliente inserido com sucesso");
 				break;
 
 			// Pesquisa um cliente cadastrado pelo nome da empresa
