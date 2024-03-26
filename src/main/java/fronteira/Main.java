@@ -22,7 +22,7 @@ public class Main {
         AvaliadorController ava = new AvaliadorController();
         AvaliacaoController av = new AvaliacaoController();
         
-
+        // Menu de Testes
         do {
             System.out.println("\nMenu:");
             System.out.println("1. Inserir Cliente");
@@ -36,24 +36,36 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-                    // Criando e persistindo um cliente
-                    Cliente cliente1 = new Cliente(1,"000000000000", "Beatriz", "Teste 1", "1", "Bea", "Beatri", "Beat",
+                    // Criando e persistindo um clientes
+                    Cliente cliente1 = new Cliente(1,"000000000000", "Beatriz", "Teste 1", 
+                    		"1", "Bea", "Beatri", "Beat",
                             "construcao", "tutu", "testeExemplo@teste.com");
+                    Cliente cliente2 = new Cliente(2,"000000000001", "Jorge", "Teste 2", 
+                    		"2", "Jor", "Jorg", "Teste",
+                            "construcao", "Atta", "testExemplo@test.com");
                     c.inserirCliente(cliente1);
+                    c.inserirCliente(cliente2);
 
-                    // Criando e persistindo um avaliador
+                    // Criando e persistindo um avaliadores
                     Avaliador avaliador1 = new Avaliador(1,"Jorge", "Jorge@genio", "25789");
+                    Avaliador avaliador2 = new Avaliador(2,"Jorg", "Jorg@esperto", "98752");
                     ava.inserirAvaliador(avaliador1);
+                    ava.inserirAvaliador(avaliador2);
                     
-                    // Criando e persistindo uma avaliação
-                    Avaliacao avaliacao1 = new Avaliacao(1L, null, "otimo", 1, "bom", cliente1, avaliador1);
+                    // Criando e persistindo uma avaliações
+                    Avaliacao avaliacao1 = new Avaliacao(1L,null, "otimo", 1, "bom", cliente1, avaliador1);
+                    Avaliacao avaliacao2 = new Avaliacao(2L,null, "bom", 2, "otimo", cliente2, avaliador1);
+                    Avaliacao avaliacao3 = new Avaliacao(3L,null, "ruim", 1, "ruim", cliente1, avaliador2);
                     av.inserirAvaliacao(avaliacao1);
-
-                    System.out.println("Cliente, Avaliador e Avaliação inseridos com sucesso.");
+                    av.inserirAvaliacao(avaliacao2);
+                    av.inserirAvaliacao(avaliacao3);
+                    
+                    System.out.println("\nCliente, Avaliador e Avaliação inseridos com sucesso.");
                     break;
 
                 case 2:
-                    System.out.println("Pesquisar um Cliente = ");
+                	//pesquisa cliente pelo nome da empresa
+                    System.out.println("Pesquisar uma Empresa = ");
                     String nomeEmpresa = scanner.next();
                     List<Cliente> clientes = c.pesquisarUmCliente(nomeEmpresa);
                     if (!clientes.isEmpty()) {
@@ -68,6 +80,7 @@ public class Main {
                     break;
 
                 case 3:
+                	//lista todos os clientes
                     System.out.println("Listando Todos os Clientes");
                     List<Cliente> todosClientes = c.pesquisarTodos();
                     if (!todosClientes.isEmpty()) {
@@ -82,6 +95,7 @@ public class Main {
                     break;
 
                 case 4:
+                	//apaga clientes do banco
                     System.out.println("Escolha um Cliente para Apagar ");
                     long id = scanner.nextLong();
                     c.apagar(id);
