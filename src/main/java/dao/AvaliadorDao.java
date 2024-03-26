@@ -22,7 +22,7 @@ public class AvaliadorDao implements IAvaliadorDao {
 	public void inserir(Avaliador avaliador) {
 		EntityManager em = mf.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(avaliador);
+		em.merge(avaliador);
 		em.getTransaction().commit();
 		em.close();
 		

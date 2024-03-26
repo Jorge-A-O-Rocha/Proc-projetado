@@ -27,8 +27,8 @@ public class Avaliacao implements Serializable {
 	private String nivelAderencia;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCliente")
-	private Cliente cliente;
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 	
 	public Avaliacao() {
 		super();
@@ -44,16 +44,7 @@ public class Avaliacao implements Serializable {
 		this.nivelAderencia = nivelAderencia;
 		this.cliente = cliente;
 	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-
+	
 	public long getIdAvaliacao() {
 		return idAvaliacao;
 	}
@@ -92,6 +83,14 @@ public class Avaliacao implements Serializable {
 
 	public void setNivelAderencia(String nivelAderencia) {
 		this.nivelAderencia = nivelAderencia;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public static long getSerialversionuid() {

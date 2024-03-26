@@ -25,6 +25,15 @@ public class Avaliador implements Serializable, IUsuario {
 
 	}
 
+	public Avaliador(long idAvaliador, String nomeAvaliador, String emailAvaliador, String telefone) {
+		super();
+		this.idAvaliador = idAvaliador;
+		this.nomeAvaliador = nomeAvaliador;
+		this.emailAvaliador = emailAvaliador;
+		this.telefone = telefone;
+	}
+
+
 	public long getIdAvaliador() {
 		return idAvaliador;
 	}

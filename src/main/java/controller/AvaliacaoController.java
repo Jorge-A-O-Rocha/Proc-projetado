@@ -8,7 +8,7 @@ import model.Avaliacao;
 public class AvaliacaoController {
 AvaliacaoDao avaliacaoDao = new AvaliacaoDao();
 	
-	public void inserirAvaliador (Avaliacao avaliacao){
+	public void inserirAvaliacao (Avaliacao avaliacao){
 		avaliacaoDao.inserir(avaliacao);
 	}
 	

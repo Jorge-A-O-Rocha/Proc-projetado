@@ -21,7 +21,7 @@ public class ClienteDao implements IClienteDao {
 	public void inserir(Cliente cliente) {
 		EntityManager em = mf.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(cliente);
+		em.merge(cliente);
 		em.getTransaction().commit();
 		em.close();
 	}

@@ -34,7 +34,7 @@ public class Cliente implements Serializable, IUsuario {
 	private String descricaoServico;
 	private String emailCliente;
 	
-	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Avaliacao> avaliacoes;
 	
 	public Cliente() {
@@ -43,7 +43,7 @@ public class Cliente implements Serializable, IUsuario {
 
 	public Cliente(long idCliente, String cnpj, String nomeCliente, String idContrato, String nomeEmpresa,
 			String razaoSocial, String nomeGestor, String pontoFocal, String tipoServico, String descricaoServico,
-			String emailCliente, List<Avaliacao> avaliacoes) {
+			String emailCliente) {
 		super();
 		this.idCliente = idCliente;
 		this.cnpj = cnpj;
@@ -56,9 +56,8 @@ public class Cliente implements Serializable, IUsuario {
 		this.tipoServico = tipoServico;
 		this.descricaoServico = descricaoServico;
 		this.emailCliente = emailCliente;
-		this.avaliacoes = avaliacoes;
 	}
-
+	
 	public long getIdCliente() {
 		return idCliente;
 	}
