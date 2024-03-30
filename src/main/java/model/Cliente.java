@@ -34,6 +34,10 @@ public class Cliente implements Serializable, IUsuario {
 	private String descricaoServico;
 	private String emailCliente;
 	
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Formulario> formulario;
+	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Avaliacao> avaliacoes;
 	
@@ -57,7 +61,9 @@ public class Cliente implements Serializable, IUsuario {
 		this.descricaoServico = descricaoServico;
 		this.emailCliente = emailCliente;
 	}
-	
+
+
+
 	public long getIdCliente() {
 		return idCliente;
 	}
@@ -146,6 +152,14 @@ public class Cliente implements Serializable, IUsuario {
 		this.emailCliente = emailCliente;
 	}
 
+	public List<Formulario> getFormulario() {
+		return formulario;
+	}
+
+	public void setFormulario(List<Formulario> formulario) {
+		this.formulario = formulario;
+	}
+
 	public List<Avaliacao> getAvaliacoes() {
 		return avaliacoes;
 	}
@@ -172,6 +186,10 @@ public class Cliente implements Serializable, IUsuario {
 	
 	public void Contrato() {
 		
+	}
+	
+	public Avaliacao consultarAvaliacao() {
+		return null;
 	}
 	
 }

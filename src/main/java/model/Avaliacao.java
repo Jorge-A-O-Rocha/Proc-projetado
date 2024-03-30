@@ -9,11 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="avaliacao")
+@Table(name = "avaliacao")
 public class Avaliacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,20 +25,21 @@ public class Avaliacao implements Serializable {
 	private String diagnostico;
 	private int pontuacao;
 	private String nivelAderencia;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "cliente_id")
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
-	@ManyToOne
-	@JoinColumn(name = "avaliador_id")
-    private Avaliador avaliador;
 	
+	@OneToOne
+	@JoinColumn(name = "formulario_id")
+	private Formulario formulario;
+
 	public Avaliacao() {
 		super();
 	}
-	
+
 	public Avaliacao(long idAvaliacao, Date dataAvaliacao, String diagnostico, int pontuacao, String nivelAderencia,
-			Cliente cliente, Avaliador avaliador) {
+			Cliente cliente, Formulario formulario) {
 		super();
 		this.idAvaliacao = idAvaliacao;
 		this.dataAvaliacao = dataAvaliacao;
@@ -46,17 +47,9 @@ public class Avaliacao implements Serializable {
 		this.pontuacao = pontuacao;
 		this.nivelAderencia = nivelAderencia;
 		this.cliente = cliente;
-		this.avaliador = avaliador;
+		this.formulario = formulario;
 	}
 	
-	public Avaliador getAvaliador() {
-		return avaliador;
-	}
-
-	public void setAvaliador(Avaliador avaliador) {
-		this.avaliador = avaliador;
-	}
-
 	public long getIdAvaliacao() {
 		return idAvaliacao;
 	}
@@ -105,20 +98,28 @@ public class Avaliacao implements Serializable {
 		this.cliente = cliente;
 	}
 
+	public Formulario getFormulario() {
+		return formulario;
+	}
+
+	public void setFormulario(Formulario formulario) {
+		this.formulario = formulario;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	public void manterAvaliacao(Cliente cli, Avaliador ave) {
+	public void manterAvaliacao(Cliente cli) {
 
 	}
 
-	public void gerarRecomendacao(Avaliacao ava) {
+	public void gerarRecomendacao(Formulario forms) {
 
 	}
 
-	public void gerarPontuacao() {
-
+	public int gerarPontuacao(Formulario forms, int pontuacao) {
+		return pontuacao;
 	}
 
 }
