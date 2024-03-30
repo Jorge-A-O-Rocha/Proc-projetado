@@ -114,12 +114,38 @@ public class Avaliacao implements Serializable {
 
 	}
 
-	public void gerarRecomendacao(Formulario forms) {
+	public void gerarDiagnostico(Formulario forms) {
 
 	}
 
-	public int gerarPontuacao(Formulario forms, int pontuacao) {
-		return pontuacao;
+	public int gerarPontuacao(int[] vetResposta) {
+		//teste de calculo de pontuação
+		int pontuacao = 0;
+		for(int i = 0; i < vetResposta.length; i++) {
+			pontuacao = pontuacao + vetResposta[i];
+			
+		}
+		int media = pontuacao / 18;
+		return media;
+	}
+	public String gerarNivelAderencia(Avaliacao av) {
+		
+		//testes de inserção de nivel de aderencia
+		if(av.getPontuacao() > 3) {
+			nivelAderencia = "Ótimo";
+			return nivelAderencia;
+		}
+		
+		else if (av.getPontuacao() == 3) {
+			nivelAderencia = "Bom";
+			return nivelAderencia;
+		}
+		
+		else if(av.getPontuacao() < 3){
+			nivelAderencia = "Ruim";
+			return nivelAderencia;
+		}
+		return null;
 	}
 
 }

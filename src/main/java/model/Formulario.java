@@ -20,7 +20,6 @@ public class Formulario implements Serializable{
 	private long idFormulario;
 	
 	private boolean possuiControle;
-	private int nivelAderencia;
 	private int[] vetResposta;
 	
 	@OneToOne(mappedBy = "formulario", cascade = CascadeType.ALL)
@@ -34,12 +33,11 @@ public class Formulario implements Serializable{
 		
 	}
 	
-	public Formulario(long idFormulario, boolean possuiControle, int nivelAderencia, int[] vetResposta,
+	public Formulario(long idFormulario, boolean possuiControle, int[] vetResposta,
 		 Cliente cliente) {
 		super();
 		this.idFormulario = idFormulario;
 		this.possuiControle = possuiControle;
-		this.nivelAderencia = nivelAderencia;
 		this.vetResposta = vetResposta;
 		this.cliente = cliente;
 	}
@@ -60,19 +58,11 @@ public class Formulario implements Serializable{
 		this.possuiControle = possuiControle;
 	}
 
-	public int getNivelAderencia() {
-		return nivelAderencia;
-	}
-
-	public void setNivelAderencia(int nivelAderencia) {
-		this.nivelAderencia = nivelAderencia;
-	}
-
 	public int[] getVetResposta() {
 		return vetResposta;
 	}
 
-	public void setVetResposta(int[] vetResposta) {
+	public void setRespostaFinal(int[] vetResposta) {
 		this.vetResposta = vetResposta;
 	}
 

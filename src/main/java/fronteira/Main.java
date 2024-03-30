@@ -20,6 +20,13 @@ public class Main {
 		ClienteController c = new ClienteController();
 		FormularioController fo = new FormularioController();
 		AvaliacaoController av = new AvaliacaoController();
+		Avaliacao avaliacao = new Avaliacao();
+		
+		//teste de calculo exemplo para gerar pontuacao do formulario
+		int[] vetRespostasForms1 = {1,3,5,2,4,2,1,5,2,3,4,4,5,5,3,2,5,3};
+		avaliacao.gerarPontuacao(vetRespostasForms1);
+		int[] vetRespostasForms2 = {4,5,3,1,2,5,1,1,2,4,5,3,2,2,1,3,1,5};
+		avaliacao.gerarPontuacao(vetRespostasForms2);
 
 		// Menu de Testes
 		do {
@@ -44,15 +51,15 @@ public class Main {
 				c.inserirCliente(cliente2);
 				
 				// Criando e persistindo formularios
-				Formulario formulario1 = new Formulario(1L, false, 1, null,cliente1);
-				Formulario formulario2 = new Formulario(2L, true, 2, null,cliente2);
+				Formulario formulario1 = new Formulario(1L, false, vetRespostasForms1,cliente1);
+				Formulario formulario2 = new Formulario(2L, true, vetRespostasForms2,cliente2);
 				fo.inserirFormulario(formulario1);
 				fo.inserirFormulario(formulario2);
 
 				// Criando e persistindo avaliações
-				Avaliacao avaliacao1 = new Avaliacao(1L, null, "otimo", 1, "bom", cliente1,formulario1);
-				Avaliacao avaliacao2 = new Avaliacao(2L, null, "bom", 2, "otimo", cliente2,formulario2);
-				Avaliacao avaliacao3 = new Avaliacao(3L, null, "ruim", 1, "ruim", cliente1,formulario1);
+				Avaliacao avaliacao1 = new Avaliacao(1L, null, "otimo", avaliacao.gerarPontuacao(vetRespostasForms1), avaliacao.gerarNivelAderencia(avaliacao), cliente1,formulario1);
+				Avaliacao avaliacao2 = new Avaliacao(2L, null, "bom", avaliacao.gerarPontuacao(vetRespostasForms2),  avaliacao.gerarNivelAderencia(avaliacao), cliente2,formulario2);
+				Avaliacao avaliacao3 = new Avaliacao(3L, null, "ruim", avaliacao.gerarPontuacao(vetRespostasForms1),  avaliacao.gerarNivelAderencia(avaliacao), cliente1,formulario1);
 				av.inserirAvaliacao(avaliacao1);
 				av.inserirAvaliacao(avaliacao2);
 				av.inserirAvaliacao(avaliacao3);
