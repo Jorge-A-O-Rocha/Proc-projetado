@@ -86,8 +86,4 @@ public class Formulario implements Serializable{
 		return serialVersionUID;
 	}
 
-	public void enviarForms(Cliente cli) {
-		
-	}
-
 }
