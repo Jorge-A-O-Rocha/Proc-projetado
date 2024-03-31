@@ -15,6 +15,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "avaliacao")
 public class Avaliacao implements Serializable {
+	@Override
+	public String toString() {
+		return "Avaliacao [idAvaliacao=" + idAvaliacao + ", dataAvaliacao=" + dataAvaliacao + ", diagnostico="
+				+ diagnostico + ", pontuacao=" + pontuacao + ", nivelAderencia=" + nivelAderencia + ", cliente="
+				+ cliente + ", formulario=" + formulario + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

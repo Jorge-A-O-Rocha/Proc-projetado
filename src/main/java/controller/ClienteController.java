@@ -24,4 +24,19 @@ public class ClienteController {
 		clienteDao.remover(id);
 	}
 	
+	public void login () {
+		System.out.println("Informe o seu email e senha");
+	}
+	
+	public void cadastro() {
+		System.out.println("Informe o seu email e senha");
+		Cliente cli = new Cliente();
+		cli.setEmail("");
+		cli.setSenha("");
+	}
+	
+	public void Contrato() {
+		System.out.println("ligue para 1199889999");
+	}
+	
 }

@@ -11,12 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import dao.IUsuario;
+
 
 
 @Entity
 @Table(name="cliente")
-public class Cliente implements Serializable, IUsuario {
+public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,6 +33,8 @@ public class Cliente implements Serializable, IUsuario {
 	private String tipoServico;
 	private String descricaoServico;
 	private String emailCliente;
+	private String email;
+	private String senha;
 	
 	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
@@ -45,9 +47,12 @@ public class Cliente implements Serializable, IUsuario {
 
 	}
 
+
+
+
 	public Cliente(long idCliente, String cnpj, String nomeCliente, String idContrato, String nomeEmpresa,
 			String razaoSocial, String nomeGestor, String pontoFocal, String tipoServico, String descricaoServico,
-			String emailCliente) {
+			String emailCliente, String email, String senha) {
 		super();
 		this.idCliente = idCliente;
 		this.cnpj = cnpj;
@@ -60,9 +65,25 @@ public class Cliente implements Serializable, IUsuario {
 		this.tipoServico = tipoServico;
 		this.descricaoServico = descricaoServico;
 		this.emailCliente = emailCliente;
+		this.email = email;
+		this.senha = senha;
 	}
 
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public long getIdCliente() {
 		return idCliente;
@@ -170,26 +191,6 @@ public class Cliente implements Serializable, IUsuario {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
-	@Override
-	public void login() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void cadastro() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public void Contrato() {
-		
-	}
-	
-	public Avaliacao consultarAvaliacao() {
-		return null;
 	}
 	
 }

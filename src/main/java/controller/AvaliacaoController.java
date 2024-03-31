@@ -21,6 +21,7 @@ public class AvaliacaoController {
 		return avaliacaoDao.apenasUmaAvaliacao(idAvaliacao);
 	}
 
+
 	public void apagar(long id) {
 		avaliacaoDao.remover(id);
 	}
@@ -79,6 +80,6 @@ public class AvaliacaoController {
 			return nivelAderencia;
 		}
 
-	}
+	}	
 
 }
