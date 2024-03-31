@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ public class Avaliacao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idAvaliacao;
 
-	private Date dataAvaliacao;
+	private LocalDateTime dataAvaliacao;
 	private String diagnostico;
 	private int pontuacao;
 	private String nivelAderencia;
@@ -38,7 +38,7 @@ public class Avaliacao implements Serializable {
 		super();
 	}
 
-	public Avaliacao(long idAvaliacao, Date dataAvaliacao, String diagnostico, int pontuacao, String nivelAderencia,
+	public Avaliacao(long idAvaliacao, LocalDateTime dataAvaliacao, String diagnostico, int pontuacao, String nivelAderencia,
 			Cliente cliente, Formulario formulario) {
 		super();
 		this.idAvaliacao = idAvaliacao;
@@ -58,11 +58,11 @@ public class Avaliacao implements Serializable {
 		this.idAvaliacao = idAvaliacao;
 	}
 
-	public Date getDataAvaliacao() {
+	public LocalDateTime getDataAvaliacao() {
 		return dataAvaliacao;
 	}
 
-	public void setDataAvaliacao(Date dataAvaliacao) {
+	public void setDataAvaliacao(LocalDateTime dataAvaliacao) {
 		this.dataAvaliacao = dataAvaliacao;
 	}
 

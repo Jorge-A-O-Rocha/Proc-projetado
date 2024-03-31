@@ -1,5 +1,7 @@
 package fronteira;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -57,11 +59,11 @@ public class Main {
 				fo.inserirFormulario(formulario3);
 
 				// Criando e persistindo avaliações
-				Avaliacao avaliacao1 = new Avaliacao(1L, null, av.gerarDiagnostico(formulario1), av.gerarPontuacao(formulario1),
+				Avaliacao avaliacao1 = new Avaliacao(1L, LocalDateTime.parse("2024/02/26 23:41",DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")), av.gerarDiagnostico(formulario1), av.gerarPontuacao(formulario1),
 						av.gerarNivelAderencia(formulario1), cliente1, formulario1);
-				Avaliacao avaliacao2 = new Avaliacao(2L, null,av.gerarDiagnostico(formulario2), av.gerarPontuacao(formulario2),
+				Avaliacao avaliacao2 = new Avaliacao(2L, LocalDateTime.parse("2024/02/11 23:41",DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")),av.gerarDiagnostico(formulario2), av.gerarPontuacao(formulario2),
 						av.gerarNivelAderencia(formulario2), cliente2, formulario2);
-				Avaliacao avaliacao3 = new Avaliacao(3L, null, av.gerarDiagnostico(formulario3), av.gerarPontuacao(formulario3),
+				Avaliacao avaliacao3 = new Avaliacao(3L, LocalDateTime.parse("2024/03/30 23:41",DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")), av.gerarDiagnostico(formulario3), av.gerarPontuacao(formulario3),
 						av.gerarNivelAderencia(formulario3), cliente1, formulario3);
 				av.inserirAvaliacao(avaliacao1);
 				av.inserirAvaliacao(avaliacao2);
