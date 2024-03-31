@@ -33,9 +33,12 @@ public class Main {
 			System.out.println("\nMenu:");
 			System.out.println("1. Inserir Cliente");
 			System.out.println("2. Pesquisar um Cliente");
-			System.out.println("3. Pesquisar Todos");
+			System.out.println("3. Listar Todos clientes");
 			System.out.println("4. Apagar um Cliente");
-			System.out.println("5. Sair");
+			System.out.println("5. pesquisar uma avaliação");
+			System.out.println("6. listar todas as avaliações");
+			System.out.println("7. apagar uma avaliação");
+			System.out.println("10. Sair");
 
 			System.out.print("Escolha uma opção: ");
 			escolha = scanner.nextInt();
@@ -53,17 +56,23 @@ public class Main {
 				// Criando e persistindo formularios
 				Formulario formulario1 = new Formulario(1L, false, vetRespostasForms1, cliente1);
 				Formulario formulario2 = new Formulario(2L, true, vetRespostasForms2, cliente2);
-				Formulario formulario3 = new Formulario(3L, true, vetRespostasForms3, cliente2);
+				Formulario formulario3 = new Formulario(3L, true, vetRespostasForms3, cliente1);
 				fo.inserirFormulario(formulario1);
 				fo.inserirFormulario(formulario2);
 				fo.inserirFormulario(formulario3);
 
 				// Criando e persistindo avaliações
-				Avaliacao avaliacao1 = new Avaliacao(1L, LocalDateTime.parse("2024/02/26 23:41",DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")), av.gerarDiagnostico(formulario1), av.gerarPontuacao(formulario1),
+				Avaliacao avaliacao1 = new Avaliacao(1L,
+						LocalDateTime.parse("2024/02/26 23:41", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")),
+						av.gerarDiagnostico(formulario1), av.gerarPontuacao(formulario1),
 						av.gerarNivelAderencia(formulario1), cliente1, formulario1);
-				Avaliacao avaliacao2 = new Avaliacao(2L, LocalDateTime.parse("2024/02/11 23:41",DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")),av.gerarDiagnostico(formulario2), av.gerarPontuacao(formulario2),
+				Avaliacao avaliacao2 = new Avaliacao(2L,
+						LocalDateTime.parse("2024/02/11 23:41", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")),
+						av.gerarDiagnostico(formulario2), av.gerarPontuacao(formulario2),
 						av.gerarNivelAderencia(formulario2), cliente2, formulario2);
-				Avaliacao avaliacao3 = new Avaliacao(3L, LocalDateTime.parse("2024/03/30 23:41",DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")), av.gerarDiagnostico(formulario3), av.gerarPontuacao(formulario3),
+				Avaliacao avaliacao3 = new Avaliacao(3L,
+						LocalDateTime.parse("2024/03/30 23:41", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")),
+						av.gerarDiagnostico(formulario3), av.gerarPontuacao(formulario3),
 						av.gerarNivelAderencia(formulario3), cliente1, formulario3);
 				av.inserirAvaliacao(avaliacao1);
 				av.inserirAvaliacao(avaliacao2);
@@ -111,6 +120,46 @@ public class Main {
 				break;
 
 			case 5:
+				// pesquisar avaliacao do banco
+				System.out.println("Pesquise pelo id ");
+				long idAval = scanner.nextLong();
+				List<Avaliacao> avaliacoes = av.pesquisarUmaAvaliacao(idAval);
+				if (!avaliacoes.isEmpty()) {
+					for (Avaliacao avali : avaliacoes) {
+						System.out.println(
+								"\nId= " + avali.getIdAvaliacao() + "\nData Avaliação: " + avali.getDataAvaliacao()
+										+ "\nDiagnóstico: " + avali.getDiagnostico() + "\nPontuação média: "
+										+ avali.getPontuacao() + "\nNível de maturidade: " + avali.getNivelAderencia());
+					}
+				} else {
+					System.out.println("Não encontrou o Cliente");
+				}
+				break;
+				
+			case 6:
+				// listar todas as avaliacões do banco
+				System.out.println("Listando Todos as avaliações");
+				List<Avaliacao> todasAvaliacao = av.pesquisarTodos();
+				if (!todasAvaliacao.isEmpty()) {
+					for (Avaliacao avaliacao : todasAvaliacao) {
+						System.out.println("\nId= " + avaliacao.getIdAvaliacao() + "\nData Avaliação: "
+								+ avaliacao.getDataAvaliacao() + "\nDiagnóstico: " + avaliacao.getDiagnostico()
+								+ "\nPontuação média: " + avaliacao.getPontuacao() + "\nNível de maturidade: "
+								+ avaliacao.getNivelAderencia());
+					}
+				} else {
+					System.out.println("Não encontrou avaliações");
+				}
+				break;
+
+			case 7:
+				// apagar avaliações do banco
+				System.out.println("Escolha uma Avaliação para Apagar ");
+				long idApagaAva = scanner.nextLong();
+				av.apagar(idApagaAva);
+				break;
+
+			case 8:
 				System.out.println("Saindo do menu.");
 				break;
 
@@ -118,7 +167,7 @@ public class Main {
 				System.out.println("Opção inválida. Tente novamente.");
 			}
 
-		} while (escolha != 5);
+		} while (escolha != 8);
 
 		scanner.close();
 	}

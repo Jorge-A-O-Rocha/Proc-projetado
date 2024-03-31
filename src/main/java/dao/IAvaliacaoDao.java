@@ -9,7 +9,7 @@ public interface IAvaliacaoDao {
 	public void inserir(Avaliacao avaliacao) ;
 	public void remover (long id) ;
 	public List<Avaliacao> lista();
-	public List<Avaliacao> apenasUmaAvaliacao (String nomeAvaliador);
+	public List<Avaliacao> apenasUmaAvaliacao (long idAvaliacao);
  
 }
  

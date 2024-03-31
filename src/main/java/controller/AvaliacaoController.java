@@ -17,12 +17,12 @@ public class AvaliacaoController {
 		return avaliacaoDao.lista();
 	}
 
-	public List<Avaliacao> pesquisarUmaAvaliacao(String idAvaliacao) {
+	public List<Avaliacao> pesquisarUmaAvaliacao(long idAvaliacao) {
 		return avaliacaoDao.apenasUmaAvaliacao(idAvaliacao);
 	}
 
-	public void apagar(long idAvaliacao) {
-		avaliacaoDao.remover(idAvaliacao);
+	public void apagar(long id) {
+		avaliacaoDao.remover(id);
 	}
 
 	public String gerarDiagnostico(Formulario forms) {
